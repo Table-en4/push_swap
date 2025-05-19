@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: molapoug <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/19 10:30:53 by molapoug          #+#    #+#              #
-#    Updated: 2025/05/19 20:35:11 by molapoug         ###   ########.fr        #
+#    Updated: 2025/05/20 00:16:14 by molapoug         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBFT = libft/
-FT_PRINTF = ft_printf/
+FT_PRINTF = ft_printf
 
 AR = ar rcs
 RM = rm -f
 
-SRC = push_swap.c
+SRC = push_swap.c ft_divide_stack.c 
 OBJ = $(SRC:.c=.o)
 
 LIBS = $(LIBFT)libft.a $(FT_PRINTF)libftprintf.a
@@ -43,7 +43,7 @@ $(NAME): $(OBJ) $(LIBS)
 
 %.o: %.c push_swap.h
 	@echo "$(CYAN)🔥Compiling$(GREEN) $<$(NC)"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(LIBFT) -I$(FT_PRINTF) -c $< -o $@
 
 $(LIBFT)libft.a:
 	@make -C $(LIBFT)
@@ -65,11 +65,7 @@ fclean: clean
 
 re: fclean all
 
-run: $(NAME)
-	@echo "$(GREEN)🔧Running ./$(NAME)$(NC)"
-	@./$(NAME)
-
 bonus:
 	@echo "$(PURPLE)💡Bonus not implemented yet$(NC)"
 
-.PHONY: all clean fclean re bonus run
+.PHONY: all clean fclean re bonus
