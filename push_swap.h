@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 00:08:37 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/20 21:21:21 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct t_swap
+typedef struct s_swap
 {
+	int	size;
 	int	*a;
 	int	*b;
 	int	sa;
@@ -34,9 +35,14 @@ typedef struct t_swap
 	int	rra;
 	int	rrb;
 	int	rrr;
+	struct s_stack	*next;
 }	t_swap;
 
+/* fonctions with void */
 void    ft_divide_stack(t_swap *swap);
-int ft_malloc_stack(t_swap *swap, int size);
+
+/*fonctions with int */
+int	ft_malloc_stack(t_swap *swap, int size);
+void	*ft_rotate_sa(t_swap *swap);
 
 #endif
