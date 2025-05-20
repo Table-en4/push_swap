@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 21:21:21 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/20 22:36:10 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void    ft_divide_stack(t_swap *swap);
 
 /*fonctions with int */
 int	ft_malloc_stack(t_swap *swap, int size);
-void	*ft_rotate_sa(t_swap *swap);
+void	ft_rotate_sa(t_swap *swap);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 21:00:20 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/20 22:43:12 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,37 @@
 	
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	int	nbr;
 	t_swap	*swap;
+	int		i;
 
-	j = 1;
-	while (j < argc)
-	{
-		i = 0;
-		while (argv[j][i])
-			ft_putchar(argv[j][i++]);
-		ft_putchar('\n');
-		j++;
-	}
+	if (argc < 2)
+		return (1);
+
 	swap = malloc(sizeof(t_swap));
 	if (!swap)
-		return (ft_putstr_fd("erreur de malloc dans le main", 2), 1);
-	swap->a = &nbr;
-	ft_rotate_sa(swap);
-	j = 1;
-	ft_printf("%s\n", "ft_rotate_sa :");
-	while (j < argc)
+		return (ft_putstr_fd("Erreur de malloc\n", 2), 1);
+
+	swap->size = argc - 1;
+	swap->a = malloc(sizeof(int) * swap->size);
+	if (!swap->a)
+		return (ft_putstr_fd("Erreur de malloc pour a\n", 2), 1);
+
+	i = 0;
+	while (i < swap->size)
 	{
-		nbr = ft_atoi(argv[j]);
-		printf("%d\n", nbr);
-		j++;
+		swap->a[i] = ft_atoi(argv[i + 1]);
+		i++;
 	}
+
+	ft_rotate_sa(swap);
+
+	printf("Après rotation :\n");
+	i = 0;
+	while (i < swap->size)
+		printf("%d\n", swap->a[i++]);
+
+	free(swap->a);
+	free(swap);
+	return (0);
 }
+

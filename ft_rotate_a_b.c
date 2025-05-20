@@ -6,13 +6,13 @@
 /*   By: molapoug <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:00 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 21:20:48 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/20 22:35:56 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_rotate_sa(t_swap *swap)
+void	ft_rotate_sa(t_swap *swap)
 {
 	int	i;
 	int	*tmp;
