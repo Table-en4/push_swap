@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/21 19:20:14 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/21 22:39:01 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int	main(int argc, char **argv)
 	ft_rotate_a(swap);
 	ft_rotate_b(swap);
 	ft_rr(swap);
+	ft_rr_a(swap);
+	ft_rr_b(swap);
+	ft_rrr(swap);
 
 	printf("Après rotation :\n");
 	i = 0;
