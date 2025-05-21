@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:09:48 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 11:37:40 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:55:59 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    ft_divide_stack(t_swap *swap)
 			swap->b[swap->sb++] = swap->a[i];
 			swap->pb++;
 		}
-		else
+		else if (i >= swap->pb)
 			swap->a[i - swap->pb] = swap->a[i];
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/20 22:43:12 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/21 19:20:14 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ int	main(int argc, char **argv)
 	swap->a = malloc(sizeof(int) * swap->size);
 	if (!swap->a)
 		return (ft_putstr_fd("Erreur de malloc pour a\n", 2), 1);
-
+	swap->b = malloc(sizeof(int) * swap->size);
+	if (!swap->b)
+		return (ft_putstr_fd("Erreur de malloc pour b\n", 2), 1);
+	swap->sa = swap->size;
+	swap->sb = 0;
+	swap->pb = 0;
 	i = 0;
 	while (i < swap->size)
 	{
@@ -36,14 +41,21 @@ int	main(int argc, char **argv)
 		i++;
 	}
 
-	ft_rotate_sa(swap);
+	ft_divide_stack(swap);
+	ft_swap_sa(swap);
+	ft_swap_sb(swap);
+	ft_rotate_a(swap);
+	ft_rotate_b(swap);
+	ft_rr(swap);
 
 	printf("Après rotation :\n");
 	i = 0;
-	while (i < swap->size)
-		printf("%d\n", swap->a[i++]);
-
-	free(swap->a);
+	while (i < swap->sa)
+		ft_printf("pile a : %d\n", swap->a[i++]);
+	i = 0;
+	while (i < swap->sb)
+		ft_printf("pile b : %d\n", swap->b[i++]);
+	//free(swap->a);
 	free(swap);
 	return (0);
 }
