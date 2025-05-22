@@ -6,31 +6,38 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:09:48 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/21 16:55:59 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:51:47 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_divide_stack(t_swap *swap)
+void	ft_divide_stack(t_swap *swap)
 {
 	int	i;
 	int	pivot;
+	int	j;
 
 	i = 0;
+	j = 0;
 	pivot = swap->a[swap->sa / 2];
 	while (i < swap->sa)
 	{
 		if (swap->a[i] < pivot)
 		{
 			swap->b[swap->sb++] = swap->a[i];
-			swap->pb++;
+			j++;
 		}
-		else if (i >= swap->pb)
-			swap->a[i - swap->pb] = swap->a[i];
 		i++;
 	}
-	swap->sa -= swap->pb;
+	i = 0;
+	while (i < swap->sa)
+	{
+		if (swap->a[i] >= pivot)
+			swap->a[i - j] = swap->a[i];
+		i++;
+	}
+	swap->sa -= swap->sb;
 }
 
 int	ft_malloc_stack(t_swap *swap, int size)

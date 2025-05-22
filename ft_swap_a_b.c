@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap_a_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: molapoug <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:00 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/21 16:25:13 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:11:50 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,40 @@ void	ft_ss(t_swap *swap)
 	ft_swap_sb(swap);
 }
 
-void	ft_push_pa(t_swap *swap)
+void ft_push_pa(t_swap *swap)
 {
-	//int	tmp;
-	int	i;
+    int i;
 
-	//tmp = swap;
-	if (!swap->b)
-		return ;
-	i = 0;
-	while (i < swap->size)
-		i++;
-	//tmp = swap->b[0];
-	swap->b[0] = swap->a[i + 1];
+    i = 0;
+    if (swap->sb > 0)
+    {
+        swap->a[swap->sa] = swap->b[0];
+        swap->sa++;
+        while (i < swap->sb - 1)
+        {
+            swap->b[i] = swap->b[i + 1];
+            i++;
+        }
+        swap->sb--;
+    }
 }
 
-void	ft_push_pb(t_swap *swap)
-{
-	int	i;
 
-	if (!swap->a)
-		return ;
-	i = 0;
-	while (i < swap->size)
-		i++;
-	swap->a[0] = swap->b[i + 1];
+void ft_push_pb(t_swap *swap)
+{
+    int i;
+
+    i = 0;
+    if (swap->sa > 0)
+    {
+        swap->b[swap->sb] = swap->a[0];
+        swap->sb++;
+        while (i < swap->sa - 1)
+        {
+            swap->a[i] = swap->a[i + 1];
+            i++;
+        }
+        swap->sa--;
+    }
 }
+

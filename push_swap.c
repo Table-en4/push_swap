@@ -6,12 +6,23 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/21 22:39:01 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:12:11 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-	
+
+void	try_sort(t_swap *swap)
+{
+	int	i;
+
+	if (!swap)
+		return ;
+	i = 0;
+	while (swap->a[i + 1] > swap->a[i])
+		ft_push_pb(swap);
+}
+
 int	main(int argc, char **argv)
 {
 	t_swap	*swap;
@@ -41,15 +52,18 @@ int	main(int argc, char **argv)
 		i++;
 	}
 
-	ft_divide_stack(swap);
-	ft_swap_sa(swap);
-	ft_swap_sb(swap);
-	ft_rotate_a(swap);
-	ft_rotate_b(swap);
-	ft_rr(swap);
-	ft_rr_a(swap);
-	ft_rr_b(swap);
-	ft_rrr(swap);
+	//ft_divide_stack(swap);
+	//ft_swap_sa(swap);
+	//ft_swap_sb(swap);
+	//ft_rotate_a(swap);
+	//ft_rotate_b(swap);
+	//ft_rr(swap);
+	//ft_rr_a(swap);
+	//ft_rr_b(swap);
+	//ft_rrr(swap);
+	//ft_push_pa(swap);
+	//try_sort(swap);
+	//ft_push_pb(swap);
 
 	printf("Après rotation :\n");
 	i = 0;
