@@ -6,51 +6,35 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:09:48 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/22 19:51:47 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:03:34 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_divide_stack(t_swap *swap)
+void	fill_stack(t_swap *swap, int argc, char **argv)
 {
-	int	i;
-	int	pivot;
-	int	j;
+    int i;
+	int half;
 
-	i = 0;
-	j = 0;
-	pivot = swap->a[swap->sa / 2];
-	while (i < swap->sa)
-	{
-		if (swap->a[i] < pivot)
-		{
-			swap->b[swap->sb++] = swap->a[i];
-			j++;
-		}
-		i++;
-	}
-	i = 0;
-	while (i < swap->sa)
-	{
-		if (swap->a[i] >= pivot)
-			swap->a[i - j] = swap->a[i];
-		i++;
-	}
-	swap->sa -= swap->sb;
-}
-
-int	ft_malloc_stack(t_swap *swap, int size)
-{
-	swap->a = malloc(sizeof(int) * size);
-	swap->b = malloc(sizeof(int) * size);
+	swap->size = argc - 1;
+	half = swap->size / 2;
+	swap->size_a = half;
+	swap->size_b = swap->size - half;
+	swap->a = malloc(sizeof(int) * swap->size_a);
+	swap->b = malloc(sizeof(int) * swap->size_b);
 	if (!swap->a || !swap->b)
+        return ;
+	i = 0;
+	while (i < swap->size_a)
 	{
-		free(swap->a);
-		free(swap->b);	
-		return (0);
+		swap->a[i] = ft_atoi(argv[i + 1]);
+		i++;
 	}
-	swap->sa = size;
-	swap->sb = 0;
-	return (1);
+	i = 0;
+	while (i < swap->size_b)
+	{
+		swap->b[i] = ft_atoi(argv[i + 1 + swap->size_a]);
+		i++;
+	}
 }

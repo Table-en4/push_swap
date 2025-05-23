@@ -6,7 +6,7 @@
 #    By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/19 10:30:53 by molapoug          #+#    #+#              #
-#    Updated: 2025/05/22 19:45:52 by molapoug         ###   ########.fr        #
+#    Updated: 2025/05/23 19:07:06 by molapoug         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -f
 
 SRC = push_swap.c ft_divide_stack.c \
      ft_rotate_a_b.c ft_swap_a_b.c \
-     ft_reverse_rotate.c 
+     ft_reverse_rotate.c utils.c 
 OBJ = $(SRC:.c=.o)
 
 LIBS = $(LIBFT)libft.a $(FT_PRINTF)libftprintf.a
