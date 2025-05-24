@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/23 20:51:42 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:51:33 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,10 @@
 typedef struct s_swap
 {
 	int	size;
-	int	size_a;
-	int	size_b;
 	int	*a;
 	int	*b;
 	int	sa;
 	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
 	struct s_stack	*next;
 }	t_swap;
 
@@ -49,6 +38,7 @@ void	ft_swap_sb(t_swap *swap);
 void    ft_ss(t_swap *swap);
 void	ft_push_pa(t_swap *swap);
 void	ft_push_pb(t_swap *swap);
+void	ft_pp(t_swap *swap);
 
 /* fonctions with void for rotate and reverse rotate */
 void	ft_rotate_a(t_swap *swap);
@@ -61,7 +51,12 @@ void	ft_rrr(t_swap *swap);
 /* utils fonctions */
 void	ft_perror(char *str);
 
-/*fonctions with int */
+/* fonctions with int */
 int	ft_malloc_stack(t_swap *swap, int size);
+
+/* fonctions for the algo */
+void	sort_small(t_swap *s);
+void	sort_three(t_swap *swap);
+void	radix_sort(t_swap *s);
 
 #endif

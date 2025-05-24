@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 22:02:54 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/21 22:38:21 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/24 10:39:11 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	ft_rrr(t_swap *swap)
 {
 	ft_rr_a(swap);
 	ft_rr_b(swap);
+}
+
+void	ft_pp(t_swap *swap)
+{
+	ft_push_pa(swap);
+	ft_push_pb(swap);
 }
