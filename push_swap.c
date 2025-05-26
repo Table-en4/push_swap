@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/24 17:56:30 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:27:15 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,29 @@ void	sort_three(t_swap *swap)
 	}
 	else if (a[0] < a[1] && a[1] > a[2] && a[0] > a[2])
 		ft_rr_a(swap);
+}
+
+void	sort_three_b(t_swap *swap)
+{
+	int	*b;
+
+	b = swap->b;
+	if (b[0] > b[1] && b[1] < b[2] && b[0] < b[2])
+		ft_swap_sb(swap);
+	else if (b[0] > b[1] && b[1] > b[2])
+	{
+		ft_swap_sb(swap);
+		ft_rr_b(swap);
+	}
+	else if (b[0] > b[1] && b[1] < b[2] && b[0] > b[2])
+		ft_rotate_b(swap);
+	else if (b[0] < b[1] && b[1] > b[2] && b[0] < b[2])
+	{
+		ft_swap_sb(swap);
+		ft_rotate_b(swap);
+	}
+	else if (b[0] < b[1] && b[1] > b[2] && b[0] > b[2])
+		ft_rr_b(swap);
 }
 
 void	print_stacks(t_swap *swap)

@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/24 16:51:33 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:08:40 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,10 @@ void	ft_rrr(t_swap *swap);
 /* utils fonctions */
 void	ft_perror(char *str);
 
-/* fonctions with int */
-int	ft_malloc_stack(t_swap *swap, int size);
-
 /* fonctions for the algo */
 void	sort_small(t_swap *s);
 void	sort_three(t_swap *swap);
+void	sort_three_b(t_swap *swap);
 void	radix_sort(t_swap *s);
 
 #endif
