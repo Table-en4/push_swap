@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate_a_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: molapoug <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:32:34 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/24 13:37:25 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/27 22:25:02 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_rotate_a(t_swap *swap)
 		i++;
 	}
 	swap->a[swap->sa - 1] = tmp;
+	ft_printf("ra\n");
 }
 
 void	ft_rotate_b(t_swap *swap)
@@ -44,10 +45,12 @@ void	ft_rotate_b(t_swap *swap)
 		i++;
 	}
 	swap->b[swap->sb - 1] = tmp;
+	ft_printf("rb\n");
 }
 
 void	ft_rr(t_swap *swap)
 {
 	ft_rotate_a(swap);
 	ft_rotate_b(swap);
+	ft_printf("rr\n");
 }

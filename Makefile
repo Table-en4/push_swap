@@ -6,14 +6,14 @@
 #    By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/19 10:30:53 by molapoug          #+#    #+#              #
-#    Updated: 2025/05/26 13:00:27 by molapoug         ###   ########.fr        #
+#    Updated: 2025/05/27 22:18:13 by molapoug         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -g3
 
 LIBFT = libft/
 FT_PRINTF = ft_printf
@@ -24,7 +24,7 @@ RM = rm -f
 SRC = push_swap.c ft_divide_stack.c \
      ft_rotate_a_b.c ft_swap_a_b.c \
      ft_reverse_rotate.c utils.c \
-     ft_sort_small.c ft_radix.c 
+     ft_sort_small.c  
 OBJ = $(SRC:.c=.o)
 
 LIBS = $(LIBFT)libft.a $(FT_PRINTF)libftprintf.a

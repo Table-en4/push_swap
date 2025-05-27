@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:00 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/23 16:50:57 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/27 22:26:57 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_swap_sa(t_swap *swap)
 	tmp = swap->a[0];
 	swap->a[0] = swap->a[1];
 	swap->a[1] = tmp;
+	ft_printf("sa\n");
 }
 
 void	ft_swap_sb(t_swap *swap)
@@ -32,12 +33,14 @@ void	ft_swap_sb(t_swap *swap)
 	tmp = swap->b[0];
 	swap->b[0] = swap->b[1];
 	swap->b[1] = tmp;
+	ft_printf("sb\n");
 }
 
 void	ft_ss(t_swap *swap)
 {
 	ft_swap_sa(swap);
 	ft_swap_sb(swap);
+	ft_printf("ss\n");
 }
 
 void	ft_push_pa(t_swap *swap)
@@ -56,6 +59,7 @@ void	ft_push_pa(t_swap *swap)
 		}
 		swap->sb--;
 	}
+	ft_printf("pa\n");
 }
 
 void	ft_push_pb(t_swap *swap)
@@ -74,5 +78,6 @@ void	ft_push_pb(t_swap *swap)
 		}
 		swap->sa--;
 	}
+	ft_printf("pb\n");
 }
 
