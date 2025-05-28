@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:41:25 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 16:30:19 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:02:04 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,6 @@ void	copy_stack(t_swap *s, int *sorted)
 	while (i < s->size)
 	{
 		sorted[i] = s->a[i];
-		i++;
-	}
-}
-
-void	sort_array(int *arr, int size)
-{
-	int	i;
-	int	j;
-	int	tmp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] > arr[j])
-			{
-				tmp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = tmp;
-			}
-			j++;
-		}
 		i++;
 	}
 }

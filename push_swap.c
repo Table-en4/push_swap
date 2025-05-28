@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 16:49:12 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:05:34 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,62 @@
 
 void	sort_three(t_swap *swap)
 {
-    int	*a;
+	int	*a;
 
-    a = swap->a;
-    if (a[0] > a[1] && a[1] < a[2] && a[0] < a[2])
-        ft_swap_sa(swap);
-    else if (a[0] > a[1] && a[1] > a[2])
-    {
-        ft_swap_sa(swap);
-        ft_rr_a(swap);
-    }
-    else if (a[0] > a[1] && a[1] < a[2] && a[0] > a[2])
-        ft_rotate_a(swap);
-    else if (a[0] < a[1] && a[1] > a[2] && a[0] < a[2])
-    {
-        ft_swap_sa(swap);
-        ft_rotate_a(swap);
-    }
-    else if (a[0] < a[1] && a[1] > a[2] && a[0] > a[2])
-        ft_rr_a(swap);
+	a = swap->a;
+	if (a[0] > a[1] && a[1] < a[2] && a[0] < a[2])
+		ft_swap_sa(swap);
+	else if (a[0] > a[1] && a[1] > a[2])
+	{
+		ft_swap_sa(swap);
+		ft_rr_a(swap);
+	}
+	else if (a[0] > a[1] && a[1] < a[2] && a[0] > a[2])
+		ft_rotate_a(swap);
+	else if (a[0] < a[1] && a[1] > a[2] && a[0] < a[2])
+	{
+		ft_swap_sa(swap);
+		ft_rotate_a(swap);
+	}
+	else if (a[0] < a[1] && a[1] > a[2] && a[0] > a[2])
+		ft_rr_a(swap);
 }
 
 void	sort_three_b(t_swap *swap)
 {
-    int	*b;
+	int	*b;
 
-    b = swap->b;
-    if (b[0] > b[1] && b[1] < b[2] && b[0] < b[2])
-        ft_swap_sb(swap);
-    else if (b[0] > b[1] && b[1] > b[2])
-    {
-        ft_swap_sb(swap);
-        ft_rr_b(swap);
-    }
-    else if (b[0] > b[1] && b[1] < b[2] && b[0] > b[2])
-        ft_rotate_b(swap);
-    else if (b[0] < b[1] && b[1] > b[2] && b[0] < b[2])
-    {
-        ft_swap_sb(swap);
-        ft_rotate_b(swap);
-    }
-    else if (b[0] < b[1] && b[1] > b[2] && b[0] > b[2])
-        ft_rr_b(swap);
+	b = swap->b;
+	if (b[0] > b[1] && b[1] < b[2] && b[0] < b[2])
+		ft_swap_sb(swap);
+	else if (b[0] > b[1] && b[1] > b[2])
+	{
+		ft_swap_sb(swap);
+		ft_rr_b(swap);
+	}
+	else if (b[0] > b[1] && b[1] < b[2] && b[0] > b[2])
+		ft_rotate_b(swap);
+	else if (b[0] < b[1] && b[1] > b[2] && b[0] < b[2])
+	{
+		ft_swap_sb(swap);
+		ft_rotate_b(swap);
+	}
+	else if (b[0] < b[1] && b[1] > b[2] && b[0] > b[2])
+		ft_rr_b(swap);
 }
 
 int	main(int ac, char **av)
 {
-    t_swap swap;
+	t_swap	swap;
 
-    if (ac < 3)
-        return (ft_perror("Manque d'argument"), 1);
-    fill_stack(&swap, ac, av);
-    if (swap.size <= 5)
-        sort_small(&swap);
-    else
-        radix_sort(&swap);
-    free(swap.a);
-    free(swap.b);
-    return (0);
+	if (ac < 3)
+		return (ft_error("Error"), 1);
+	fill_stack(&swap, ac, av);
+	if (swap.size <= 5)
+		sort_small(&swap);
+	else
+		radix_sort(&swap);
+	free(swap.a);
+	free(swap.b);
+	return (0);
 }
-

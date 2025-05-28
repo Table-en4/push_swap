@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:32:34 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/27 22:25:02 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:01:14 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_rotate_a(t_swap *swap)
 {
-	int i;
+	int	i;
 	int	tmp;
 
 	if (!swap->a || swap->sa < 2)

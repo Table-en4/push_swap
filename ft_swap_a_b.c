@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:00 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 16:29:47 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:00:51 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,3 @@ void	ft_push_pb(t_swap *swap)
 	swap->sa--;
 	ft_printf("pb\n");
 }
-
