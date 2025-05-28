@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:00 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/27 22:26:57 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:29:47 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,23 @@ void	ft_push_pa(t_swap *swap)
 {
 	int	i;
 
-	i = 0;
-	if (swap->sb > 0)
+	if (swap->sb <= 0)
+		return ;
+	i = swap->sa;
+	while (i > 0)
 	{
-		swap->a[swap->sa] = swap->b[0];
-		swap->sa++;
-		while (i < swap->sb - 1)
-		{
-			swap->b[i] = swap->b[i + 1];
-			i++;
-		}
-		swap->sb--;
+		swap->a[i] = swap->a[i - 1];
+		i--;
 	}
+	swap->a[0] = swap->b[0];
+	swap->sa++;
+	i = 0;
+	while (i < swap->sb - 1)
+	{
+		swap->b[i] = swap->b[i + 1];
+		i++;
+	}
+	swap->sb--;
 	ft_printf("pa\n");
 }
 
@@ -66,18 +71,23 @@ void	ft_push_pb(t_swap *swap)
 {
 	int	i;
 
-	i = 0;
-	if (swap->sa > 0)
+	if (swap->sa <= 0)
+		return ;
+	i = swap->sb;
+	while (i > 0)
 	{
-		swap->b[swap->sb] = swap->a[0];
-		swap->sb++;
-		while (i < swap->sa - 1)
-		{
-			swap->a[i] = swap->a[i + 1];
-			i++;
-		}
-		swap->sa--;
+		swap->b[i] = swap->b[i - 1];
+		i--;
 	}
+	swap->b[0] = swap->a[0];
+	swap->sb++;
+	i = 0;
+	while (i < swap->sa - 1)
+	{
+		swap->a[i] = swap->a[i + 1];
+		i++;
+	}
+	swap->sa--;
 	ft_printf("pb\n");
 }
 

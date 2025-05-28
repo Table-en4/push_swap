@@ -3,16 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: molapoug <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:41:25 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/27 15:17:39 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:30:19 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_int_tab(int *tab, int size)
+void	copy_stack(t_swap *s, int *sorted)
+{
+	int	i;
+
+	i = 0;
+	while (i < s->size)
+	{
+		sorted[i] = s->a[i];
+		i++;
+	}
+}
+
+void	sort_array(int *arr, int size)
 {
 	int	i;
 	int	j;
@@ -24,11 +36,11 @@ void	sort_int_tab(int *tab, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (tab[i] > tab[j])
+			if (arr[i] > arr[j])
 			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
 			}
 			j++;
 		}
@@ -36,61 +48,80 @@ void	sort_int_tab(int *tab, int size)
 	}
 }
 
-void	index_stack(t_swap *s)
+void	replace_with_index(t_swap *s, int *sorted)
 {
-	int	*sorted;
 	int	i;
 	int	j;
 
-	sorted = malloc(sizeof(int) * s->sa);
+	i = 0;
+	while (i < s->size)
+	{
+		j = 0;
+		while (j < s->size && s->a[i] != sorted[j])
+			j++;
+		if (j < s->size)
+			s->a[i] = j;
+		i++;
+	}
+}
+
+void	normalize_values(t_swap *s)
+{
+	int	*sorted;
+
+	sorted = malloc(sizeof(int) * s->size);
 	if (!sorted)
 		return ;
-	i = -1;
-	while (++i < s->sa)
-		sorted[i] = s->a[i];
-	sort_int_tab(sorted, s->sa);
-	i = -1;
-	while (++i < s->sa)
-	{
-		j = -1;
-		while (++j < s->sa)
-		{
-			if (s->a[i] == sorted[j])
-			{
-				s->a[i] = j;
-				break ;
-			}
-		}
-	}
+	copy_stack(s, sorted);
+	sort_array(sorted, s->size);
+	replace_with_index(s, sorted);
 	free(sorted);
+}
+
+int	get_max_bits(t_swap *s)
+{
+	int	max;
+	int	bits;
+	int	i;
+
+	max = s->a[0];
+	i = 1;
+	while (i < s->size)
+	{
+		if (s->a[i] > max)
+			max = s->a[i];
+		i++;
+	}
+	bits = 0;
+	while ((max >> bits) != 0)
+		bits++;
+	return (bits);
 }
 
 void	radix_sort(t_swap *s)
 {
 	int	i;
 	int	j;
-	int	bit;
-	int	max;
+	int	max_bits;
+	int	current_size;
 
-	index_stack(s);
-	max = s->sa - 1;
-	bit = 0;
-	while ((max >> bit) != 0)
-		bit++;
+	normalize_values(s);
+	max_bits = get_max_bits(s);
 	i = 0;
-	while (i < bit)
+	while (i < max_bits)
 	{
-		j = s->sa;
-		while (j-- > 0)
+		j = 0;
+		current_size = s->sa;
+		while (j < current_size)
 		{
-			if (((s->a[0] >> i) & 1) == 1)
-				ft_rotate_a(s);
-			else
+			if (((s->a[0] >> i) & 1) == 0)
 				ft_push_pb(s);
+			else
+				ft_rotate_a(s);
+			j++;
 		}
 		while (s->sb > 0)
 			ft_push_pa(s);
 		i++;
 	}
 }
-

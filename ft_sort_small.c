@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 16:33:30 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/27 22:55:07 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:00:59 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ void	sort_small(t_swap *s)
         push_min_to_b(s);
         push_min_to_b(s);
         sort_three(s);
-        /*if (s->sb == 2 && s->b[0] < s->b[1])
-            ft_swap_sb(s);*/
+        if (s->sb == 2 && s->b[0] < s->b[1])
+            ft_swap_sb(s);
         ft_push_pa(s);
         ft_push_pa(s);
     }

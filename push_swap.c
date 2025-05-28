@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/27 22:54:17 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:49:12 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,6 @@ void	sort_three_b(t_swap *swap)
         ft_rr_b(swap);
 }
 
-void	print_stacks(t_swap *swap)
-{
-    int i;
-
-    i = 0;
-    ft_printf("Pile A:\n");
-    while (i < swap->sa)
-    {
-        ft_printf("%d\n", swap->a[i]);
-        i++;
-    }
-    i = 0;
-    ft_printf("Pile B:\n");
-    while (i < swap->sb)
-    {
-        ft_printf("%d\n", swap->b[i]);
-        i++;
-    }
-}
-
 int	main(int ac, char **av)
 {
     t_swap swap;
@@ -89,7 +69,6 @@ int	main(int ac, char **av)
         sort_small(&swap);
     else
         radix_sort(&swap);
-    //print_stacks(&swap);
     free(swap.a);
     free(swap.b);
     return (0);
