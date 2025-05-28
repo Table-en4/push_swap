@@ -6,11 +6,38 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 18:05:34 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/28 20:39:46 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_double(t_swap *s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < s->size)
+	{
+		j = i + 1;
+		while (j < s->size)
+		{
+			if (s->a[i] == s->a[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	parse_error(t_swap *s)
+{
+	if (check_double(s))
+		return (1);
+	return (0);
+}
 
 void	sort_three(t_swap *swap)
 {
@@ -65,6 +92,12 @@ int	main(int ac, char **av)
 	if (ac < 3)
 		return (ft_error("Error"), 1);
 	fill_stack(&swap, ac, av);
+	if (parse_error(&swap) == 1)
+	{
+		free(swap.a);
+		free(swap.b);
+		return (ft_error("Error"), 1);
+	}
 	if (swap.size <= 5)
 		sort_small(&swap);
 	else
