@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 20:39:46 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/29 12:07:25 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	parse_error(t_swap *s)
 {
 	if (check_double(s))
 		return (1);
+	/*else if (check_min_max(s))
+		return (1);*/
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/28 18:36:17 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:36:01 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,26 @@ typedef struct s_swap
 	int	sb;
 }	t_swap;
 
-void	fill_stack(t_swap *swap, int argc, char **argv);
-void	ft_swap_sa(t_swap *swap);
-void	ft_swap_sb(t_swap *swap);
-void	ft_ss(t_swap *swap);
-void	ft_push_pa(t_swap *swap);
-void	ft_push_pb(t_swap *swap);
-void	ft_pp(t_swap *swap);
-void	ft_rotate_a(t_swap *swap);
-void	ft_rotate_b(t_swap *swap);
-void	ft_rr(t_swap *swap);
-void	ft_rr_a(t_swap *swap);
-void	ft_rr_b(t_swap *swap);
-void	ft_rrr(t_swap *swap);
-void	ft_error(char *str);
-void	sort_small(t_swap *s);
-void	sort_three(t_swap *swap);
-void	sort_three_b(t_swap *swap);
-void	radix_sort(t_swap *s);
-void	sort_array(int *arr, int size);
+void		fill_stack(t_swap *swap, int argc, char **argv);
+void		ft_swap_sa(t_swap *swap);
+void		ft_swap_sb(t_swap *swap);
+void		ft_ss(t_swap *swap);
+void		ft_push_pa(t_swap *swap);
+void		ft_push_pb(t_swap *swap);
+void		ft_pp(t_swap *swap);
+void		ft_rotate_a(t_swap *swap);
+void		ft_rotate_b(t_swap *swap);
+void		ft_rr(t_swap *swap);
+void		ft_rr_a(t_swap *swap);
+void		ft_rr_b(t_swap *swap);
+void		ft_rrr(t_swap *swap);
+void		ft_error(char *str);
+void		sort_small(t_swap *s);
+void		sort_three(t_swap *swap);
+void		sort_three_b(t_swap *swap);
+void		radix_sort(t_swap *s);
+void		sort_array(int *arr, int size);
+long long	ft_atoll(const char *str);
+int		check_min_max(t_swap *s);
 
 #endif
