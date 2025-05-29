@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:16:56 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/29 10:36:01 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:37:33 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void		sort_three_b(t_swap *swap);
 void		radix_sort(t_swap *s);
 void		sort_array(int *arr, int size);
 long long	ft_atoll(const char *str);
-int		check_min_max(t_swap *s);
+int			check_min_max(t_swap *s);
+int			is_sorted(t_swap *s);
 
 #endif

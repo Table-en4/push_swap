@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:09:48 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/29 10:54:56 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:35:59 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,3 @@ void	fill_stack(t_swap *swap, int argc, char **argv)
 		i++;
 	}
 }
-

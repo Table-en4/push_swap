@@ -6,7 +6,7 @@
 /*   By: molapoug <molapoug@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:32:18 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/29 12:07:25 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:34:21 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	parse_error(t_swap *s)
 {
 	if (check_double(s))
 		return (1);
-	/*else if (check_min_max(s))
-		return (1);*/
+	else if (check_min_max(s))
+		return (1);
 	return (0);
 }
 
@@ -92,8 +92,10 @@ int	main(int ac, char **av)
 	t_swap	swap;
 
 	if (ac < 3)
-		return (ft_error("Error"), 1);
+		return (0);
 	fill_stack(&swap, ac, av);
+	if (is_sorted(&swap) == 1)
+		return (0);
 	if (parse_error(&swap) == 1)
 	{
 		free(swap.a);
