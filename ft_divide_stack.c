@@ -12,31 +12,43 @@
 
 #include "push_swap.h"
 
-int	is_overflow(const char *str)
+static int	check_overflow_digit(unsigned long long res, int sign, char digit)
+{
+	if (res > (unsigned long long)(LLONG_MAX / 10))
+		return (1);
+	if (res == (unsigned long long)(LLONG_MAX / 10))
+	{
+		if (sign == 1 && (digit - '0') > LLONG_MAX % 10)
+			return (1);
+		if (sign == -1 && (digit - '0') > -(LLONG_MIN % 10))
+			return (1);
+	}
+	return (0);
+}
+
+int	is_overflow(const char **str)
 {
 	unsigned long long	res;
 	int					sign;
 
 	res = 0;
 	sign = 1;
-	if (*str == '+' || *str == '-')
+	if (**str == '+' || **str == '-')
 	{
-		if (*str == '-')
+		if (**str == '-')
 			sign = -1;
-		str++;
+		(*str)++;
 	}
-	if (!*str)
+	if (!**str)
 		return (1);
-	while (*str >= '0' && *str <= '9')
+	while (**str >= '0' && **str <= '9')
 	{
-		if (res > (unsigned long long)(LLONG_MAX / 10) || (res ==
-			(unsigned long long)(LLONG_MAX / 10) && (*str - '0') >
-			(sign == 1 ? LLONG_MAX % 10 : -(LLONG_MIN % 10))))
+		if (check_overflow_digit(res, sign, **str))
 			return (1);
-		res = res * 10 + (*str - '0');
-		str++;
+		res = res * 10 + (**str - '0');
+		(*str)++;
 	}
-	if (*str)
+	if (**str)
 		return (1);
 	return (0);
 }
