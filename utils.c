@@ -6,7 +6,7 @@
 /*   By: molapoug <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:42:25 by molapoug          #+#    #+#             */
-/*   Updated: 2025/05/29 18:40:08 by molapoug         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:12:22 by molapoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,15 @@ int	check_min_max(t_swap *s)
 
 int	is_sorted(t_swap *s)
 {
-	if (s->sa == 3)
+	int	i;
+
+	i = 1;
+	while (i < s->size)
 	{
-		if (s->a[0] < s->a[1] && s->a[1] < s->a[2])
-			return (1);
+		if (s->a[i] - s->a[i - 1])
+			i++;
+		else
+			return (0);
 	}
-	else if (s->sa == 4)
-	{
-		if (s->a[0] < s->a[1] && s->a[1] < s->a[2] && s->a[2] < s->a[3])
-			return (1);
-	}
-	else if (s->sa == 5)
-	{
-		if (s->a[0] < s->a[1] && s->a[1] < s->a[2]
-			&& s->a[2] < s->a[3] && s->a[3] < s->a[4])
-			return (1);
-	}
-	return (0);
+	return (1);
 }
